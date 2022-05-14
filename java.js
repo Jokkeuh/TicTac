@@ -1,4 +1,5 @@
-// TicTacToe
+
+
 
 
 
@@ -7,24 +8,50 @@
 
 
 const drawBoard = () => {
-
+    
+    
     let board = [null, null, null, null, null, null, null, null, null]
-
 
     const playerOne= "O";
     const playerTwo = "X";
     let currentPlayer = playerOne;
+    let score = 0;
 
-    function __squareClicked(e) {
+    const startBtn = document.getElementById("game-start")
+    
+    const __startScreen = () => {
+
+    }
+    startBtn.addEventListener("click", __startScreen)
+
+    const __isGameDraw = () => {
+        if(winStates === false){
+            board.forEach((b, index) => {
+                if(board[index] != null){
+                    if(b[index] != null){
+                        console.log("test")
+                    }
+                }
+            });
+            X
+        }
+        
+    }
+
+    
+
+    const __squareClicked = (e) => {
         const id = e.target.id;
         console.log(id);
         if(!board[id]){
             board[id] = currentPlayer;
             e.target.innerText = currentPlayer;
             
-           winStates(currentPlayer)
+          if(winStates(currentPlayer) === true){
+            window.alert(`${currentPlayer} wins!`)
+            score++
+          }
            
-
 
             if (currentPlayer === playerOne){
                 currentPlayer = playerTwo
@@ -32,6 +59,7 @@ const drawBoard = () => {
             if(currentPlayer === playerTwo){
                 currentPlayer = playerOne;
             };
+            
         }
         
     }
@@ -67,78 +95,98 @@ const drawBoard = () => {
 
 
     const resetBtn = document.getElementById("restart");
-          
-
+    
     const __resetScreen = () =>{
-        board.forEach((n ,i) => {
-            board[i] = null;
+        console.log(board)
+        board.forEach((b, index) => {
+            
+            if(board!=null){
+                board[index] = null;
+                
+            }
             console.log(resetBtn + "clicked")
+            
         });
         squares.forEach((square) => {
             square.innerText ="";
         })
         currentPlayer = playerOne;
+        console.log(board)
     }
-    
+
     resetBtn.addEventListener("click", __resetScreen);
 
 
  // {0,1,2}{0,3,6}{0,4,8}{2,4,6}{2,5,8}{6,7,8}
     const winStates = (move) => {
-        
-        if(board[0] === move){
-            if(board[1] === move && board[2] === move){
-                console.log(`${currentPlayer} wins horizontally`)
-                
+        if(board.includes(null)){
+            if(board[0] === move){
+                if(board[1] === move && board[2] === move){
+                    console.log(`${currentPlayer} wins horizontally`)
+                    return true
+                    
+                }
             }
-        }
 
-        if(board[0] === move){
-            if(board[3] === move && board[6]=== move){
-                console.log(`${currentPlayer} wins vertically`)
+            if(board[0] === move){
+                if(board[3] === move && board[6]=== move){
+                    console.log(`${currentPlayer} wins vertically`)
+                    return true
+                }
             }
-        }
 
-        if(board[0] === move){
-            if(board[4] === move && board[8]=== move){
-                console.log(`${currentPlayer} wins diagonally`)
+            if(board[0] === move){
+                if(board[4] === move && board[8]=== move){
+                    console.log(`${currentPlayer} wins diagonally`)
+                    return true
+                }
             }
-        }
 
-        if(board[1] === move){
-            if (board[4] === move && board[7] === move){
-                console.log(`${currentPlayer} wins vertically`)
+            if(board[1] === move){
+                if (board[4] === move && board[7] === move){
+                    console.log(`${currentPlayer} wins vertically`)
+                    return true
+                }
             }
-        }
 
-        if(board[2] === move){
-            if(board[4] === move && board[6] === move){
-                console.log(`${currentPlayer} wins diagonally`)
+            if(board[2] === move){
+                if(board[4] === move && board[6] === move){
+                    console.log(`${currentPlayer} wins diagonally`)
+                    return true
+                }
             }
-        }
 
-        if(board[2] === move){
-            if(board[5] === move && board[8]=== move){
-                console.log(`${currentPlayer} wins vertically`)
+            if(board[2] === move){
+                if(board[5] === move && board[8]=== move){
+                    console.log(`${currentPlayer} wins vertically`)
+                    return true
+                }
             }
-        }
 
-        if(board[3] === move){
-            if(board[4] === move && board[5]=== move){
-                console.log(`${currentPlayer} wins vertically`)
+            if(board[3] === move){
+                if(board[4] === move && board[5]=== move){
+                    console.log(`${currentPlayer} wins vertically`)
+                    return true
+                }
             }
-        }
 
-        if(board[6] === move){
-            if(board[7] === move && board[8]=== move){
-                console.log(`${currentPlayer} wins horizontally`)
+            if(board[6] === move){
+                if(board[7] === move && board[8]=== move){
+                    console.log(`${currentPlayer} wins horizontally`)
+                    return true
+                }
             }
+        }else{
+            console.log("draw")
+            window.alert("draw")
         }
 
 
         
     
     }
+
+    
 }
 
 
