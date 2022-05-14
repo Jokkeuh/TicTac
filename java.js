@@ -6,6 +6,9 @@
 
 
 
+    
+
+
 
 const drawBoard = () => {
     
@@ -15,28 +18,31 @@ const drawBoard = () => {
     const playerOne= "O";
     const playerTwo = "X";
     let currentPlayer = playerOne;
-    let score = 0;
+    let score = false;
 
     const startBtn = document.getElementById("game-start")
-    
+    const boardToggle = document.getElementById("game-board")
+    boardToggle.style.display ="none"
+   
+
     const __startScreen = () => {
+        //boardToggle.style.display ="none"
+        
 
-    }
-    startBtn.addEventListener("click", __startScreen)
-
-    const __isGameDraw = () => {
-        if(winStates === false){
-            board.forEach((b, index) => {
-                if(board[index] != null){
-                    if(b[index] != null){
-                        console.log("test")
-                    }
-                }
-            });
-            X
+        if(boardToggle.style.display !== "none"){
+           boardToggle.style.display ="none"
+           console.log("empty")
+        }else{
+            boardToggle.style.display = ""
+            console.log("block")
         }
         
     }
+    startBtn.addEventListener("click", __startScreen)
+    
+   
+
+    
 
     
 
@@ -102,7 +108,6 @@ const drawBoard = () => {
             
             if(board!=null){
                 board[index] = null;
-                
             }
             console.log(resetBtn + "clicked")
             
@@ -131,6 +136,7 @@ const drawBoard = () => {
             if(board[0] === move){
                 if(board[3] === move && board[6]=== move){
                     console.log(`${currentPlayer} wins vertically`)
+
                     return true
                 }
             }
