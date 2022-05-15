@@ -6,14 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TicTacToe</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">
     <div class="game-title">
             <h1> Tic Tac Toe</h1>
     </div>
+    <div class="btns">
             <button  class="game-start" id="game-start">Start</button>
             <button class="restart" id="restart">restart</button>
+    </div>
+    <div class="victory" id="victory">
+            <div>VICTORY SCREEN
+                    <div><button class="closeBtn" id="closeBtn" ></button></div>
+                    <div class="victoryPlayer" id="victoryPlayer"></div>
+            </div>
+    </div>
 
     <div class="game-board" id="game-board">
             <div class="board-square" id="0"></div>

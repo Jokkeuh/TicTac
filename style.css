@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Oxygen', sans-serif;;
     
 }
 
@@ -18,13 +19,14 @@
     align-items: center;
 }
 .game-board{
+    position: absolute;
     text-align: center;
     margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 470px;
-    border: 3px solid black;
-}
+    background-color: white;
+    }
 .board-square{
     display: flex;
     text-align: center;
@@ -32,6 +34,60 @@
     align-items: center;
     width: 150px;
     height: 150px;
+}
+
+.game-start{
+    width: 150px;
+    height: 10rem;
+}
+
+.restart{
+    position: absolute;
+    top: 100px;
+    z-index: 10;
+    width: 150px;
+    height: 4rem;
+    z-index: 12;
+}
+
+.victory{
+    display: flex;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    background-color: rgba(11, 8, 190, 0.8);
+    width: 600px;
+    height: 600px;
+    border-radius: 5%;
+    z-index: 11;
+}
+
+   
+
+
+
+.closeBtn{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: 1px;
+    top: 1px;
+    border-radius: 5%;
+    background-color: rgba(255, 255, 255, 0);
+    
+}
+
+.victoryPlayer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10%;
+    width: 350px;
+    height: 350px;
+    color: white;
+    font-size: 80px;
 }
 
 
